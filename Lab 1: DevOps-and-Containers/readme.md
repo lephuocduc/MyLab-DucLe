@@ -8,17 +8,17 @@ An introduction to the principles of DevOps and containerisation using Azure Dev
 Kubernetes is an open-source container orchestration system that automates deployment, scaling, and management of containerized applications. It is a popular choice for running containerized applications in production, as it provides a number of features that make it easy to manage and scale applications. To understand a bit more about Kubernetes, we really recommend [this video](https://www.youtube.com/watch?v=4ht22ReBjno) - it's an illustrated guide to Kubernetes and does an amazing job of distilling some advanced concepts into a short video guide.
 
 Here is a very basic glossary of some key Kubernetes terms/concepts you'll come across in the lab, but don't worry about understanding them too much in detail at this stage as that's out of scope of this lab.
-1.Node: A node is a worker machine in Kubernetes. It can be a virtual or physical machine, depending on the cluster. Each node is managed by the control plane and contains the services necessary to run Pods.
+1.**Node:** A node is a worker machine in Kubernetes. It can be a virtual or physical machine, depending on the cluster. Each node is managed by the control plane and contains the services necessary to run Pods.
 
-2. Cluster: A cluster is a group of nodes that are managed together by Kubernetes. A cluster can be made up of any number of nodes, and each node can have different hardware specifications.
+2. **Cluster:** A cluster is a group of nodes that are managed together by Kubernetes. A cluster can be made up of any number of nodes, and each node can have different hardware specifications.
 
-3. Pod: A pod is a group of one or more containers that are scheduled together on a single node. Pods are the smallest unit of deployment in Kubernetes.
+3. **Pod:** A pod is a group of one or more containers that are scheduled together on a single node. Pods are the smallest unit of deployment in Kubernetes.
 
-4. Service: A service is a logical abstraction that exposes Pods to the rest of the cluster. Services can be exposed using a variety of protocols, including HTTP, HTTPS, and TCP.
+4. **Service:** A service is a logical abstraction that exposes Pods to the rest of the cluster. Services can be exposed using a variety of protocols, including HTTP, HTTPS, and TCP.
 
-5. Storage: Kubernetes provides a variety of storage options for Pods. These options include local storage, network storage, and cloud storage.
+5. **Storage:** Kubernetes provides a variety of storage options for Pods. These options include local storage, network storage, and cloud storage.
 
-6. Container Registry: A container registry is a repository for storing container images. Container images are used to deploy Pods in Kubernetes.
+6. **Container Registry:** A container registry is a repository for storing container images. Container images are used to deploy Pods in Kubernetes.
 
 ## Azure Kubernetes Service
 
@@ -33,15 +33,15 @@ Azure DevOps is a suite of tools that helps teams to plan, develop, test, and de
 ![image](https://github.com/lephuocduc/TheLabGuide/assets/37317309/e808db0b-5815-4b21-a3a7-b8e074543bd0)
 
 This consists of the following services:
-1. Azure Repos:  is a code repository service that helps you to manage your code in a secure and scalable way.
+1. **Azure Repos:**  is a code repository service that helps you to manage your code in a secure and scalable way.
 
-3. Azure Pipelines: is a continuous integration and continuous delivery (CI/CD) service that helps you to automate the process of building, testing, and deploying your code.
+3. **Azure Pipelines:** is a continuous integration and continuous delivery (CI/CD) service that helps you to automate the process of building, testing, and deploying your code.
 
-4. Azure Boards: is a work management service that helps you to track the progress of your projects.
+4. **Azure Boards:** is a work management service that helps you to track the progress of your projects.
 
-5. Azure Test Plans: is a test management service that helps you to plan, execute, and manage your tests.
+5. **Azure Test Plans:** is a test management service that helps you to plan, execute, and manage your tests.
 
-6. Azure Artifacts: is a package management service that helps you to manage your dependencies and artifacts.
+6. **Azure Artifacts:** is a package management service that helps you to manage your dependencies and artifacts.
 
 So in summary it's a one-stop shop that makes implementing DevOps processes much easier for developers, but also allows them to plug in any other preferred third-party tools and services they may already be using in place of the included tools if they so wish.
 
@@ -55,8 +55,24 @@ So in summary it's a one-stop shop that makes implementing DevOps processes much
 Once we're done, you'll end up with an architecture looking similar to this (except you're the engineer!):
 ![image](https://github.com/lephuocduc/TheLabGuide/assets/37317309/aa416ab5-b788-49c5-acc3-3be524c3ffee)
 
-## Let's get started
+# Let's get started
 
+## Create a Resource Group
+Resource groups in Azure can be likened to logical buckets where you can organize your resources. In this lab, we will utilize the Azure CLI and Azure Cloud Shell to create and manage our resources.
+
+1. Navigate to the Azure Portal and click on the Cloud Shell icon (>_ on the top right panel of the portal) and select 'Bash (Linux)'
+
+<image>
+  
+2. Create a resource group and specify your preferred **region**.  Some examples are eastus, westeurope, westus.  Whichever you pick, please use that region for the rest of the lab when asked to create a new resource.
+
+``` bash
+	az group create --name DucLe-RG1 --location westus
+```
+
+## Deploy Azure Kubernetes Service (AKS)
+To create your cluster, copy and paste the below into your cloud shell.  Choose a unique name for your AKS cluster.
+> NOTE: AKS cluster names must contain only letters, numbers and hyphens, and be between 3 and 31 characters long.
 
 
 

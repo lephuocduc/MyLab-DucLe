@@ -62,13 +62,15 @@ Resource groups in Azure can be likened to logical buckets where you can organiz
 
 1. Navigate to the Azure Portal and click on the Cloud Shell icon (>_ on the top right panel of the portal) and select 'Bash (Linux)'
 
-<image>
+![image](https://github.com/lephuocduc/TheLabGuide/assets/37317309/d1a3bd4c-89f1-4a83-9000-6b4b6c5ea6b2)
+![image](https://github.com/lephuocduc/TheLabGuide/assets/37317309/87cb0032-feda-437a-8098-153427a5e756)
   
 2. Create a resource group and specify your preferred **region**.  Some examples are eastus, westeurope, westus.  Whichever you pick, please use that region for the rest of the lab when asked to create a new resource.
 
 ``` bash
 	az group create --name DucLe-RG1 --location westus
 ```
+![image](https://github.com/lephuocduc/TheLabGuide/assets/37317309/5bb160e2-7d1c-45de-8c9e-46dbf1f2fda6)
 
 ## Deploy Azure Kubernetes Service (AKS)
 To create your cluster, copy and paste the below into your cloud shell.  Choose a unique name for your AKS cluster.

@@ -60,7 +60,7 @@ Once we're done, you'll end up with an architecture looking similar to this (exc
 ## Create a Resource Group
 Resource groups in Azure can be likened to logical buckets where you can organize your resources. In this lab, we will utilize the Azure CLI and Azure Cloud Shell to create and manage our resources.
 
-1. Navigate to the Azure Portal and click on the Cloud Shell icon (>_ on the top right panel of the portal) and select 'Bash (Linux)'
+1. Navigate to the Azure Portal and click on the Cloud Shell icon (>_ on the top right panel of the portal) -> Create Storage and select 'Bash (Linux)'
 
 ![image](https://github.com/lephuocduc/TheLabGuide/assets/37317309/d1a3bd4c-89f1-4a83-9000-6b4b6c5ea6b2)
 ![image](https://github.com/lephuocduc/TheLabGuide/assets/37317309/87cb0032-feda-437a-8098-153427a5e756)

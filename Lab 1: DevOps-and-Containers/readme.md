@@ -32,4 +32,31 @@ Azure Kubernetes Service (AKS) is a managed Kubernetes service that makes it eas
 Azure DevOps is a suite of tools that helps teams to plan, develop, test, and deploy software. It provides a single place for teams to collaborate on code, track work, and manage releases. 
 ![image](https://github.com/lephuocduc/TheLabGuide/assets/37317309/e808db0b-5815-4b21-a3a7-b8e074543bd0)
 
+This consists of the following services:
+1. Azure Repos:  is a code repository service that helps you to manage your code in a secure and scalable way.
+
+3. Azure Pipelines: is a continuous integration and continuous delivery (CI/CD) service that helps you to automate the process of building, testing, and deploying your code.
+
+4. Azure Boards: is a work management service that helps you to track the progress of your projects.
+
+5. Azure Test Plans: is a test management service that helps you to plan, execute, and manage your tests.
+
+6. Azure Artifacts: is a package management service that helps you to manage your dependencies and artifacts.
+
+So in summary it's a one-stop shop that makes implementing DevOps processes much easier for developers, but also allows them to plug in any other preferred third-party tools and services they may already be using in place of the included tools if they so wish.
+
+## In this lab, you will:
+1. Create a Kubernetes cluster in Azure using the Azure Kubernetes Service (AKS)
+2. Create a project in Azure DevOps
+3. Set up a Continuous Integration and Continuous Delivery pipeline in Azure DevOps to deploy a demo website to AKS
+4. Pull the demo website code locally and make some changes
+5. Use your new pipeline to push these changes directly to your demo website in AKS and view the results
+
+Once we're done, you'll end up with an architecture looking similar to this (except you're the engineer!):
+![image](https://github.com/lephuocduc/TheLabGuide/assets/37317309/aa416ab5-b788-49c5-acc3-3be524c3ffee)
+
+## Let's get started
+
+
+
 

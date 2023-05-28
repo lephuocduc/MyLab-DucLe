@@ -76,5 +76,7 @@ Resource groups in Azure can be likened to logical buckets where you can organiz
 To create your cluster, copy and paste the below into your cloud shell.  Choose a unique name for your AKS cluster.
 > NOTE: AKS cluster names must contain only letters, numbers and hyphens, and be between 3 and 31 characters long.
 
+to be continued...
+
 
 

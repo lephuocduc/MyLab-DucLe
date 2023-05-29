@@ -83,9 +83,22 @@ To create your cluster, copy and paste the below into your cloud shell.  Choose 
 az aks create --resource-group <RG name> --name <cluster name> --enable-addons monitoring --kubernetes-version <version number> --generate-ssh-keys --location <location>
 ```
 ``` bash
-az aks create --resource-group DucLe-RG1 --name ducle-aks --enable-addons monitoring --kubernetes-version 1.12.8 --generate-ssh-keys --location westus
+az aks create --resource-group DucLe-RG1 --name ducle-aks --enable-addons monitoring --kubernetes-version 1.26.3 --generate-ssh-keys --location westus
 ```
+The AKS cluster will take a little while to deploy.  Now is the ideal time to get yourself a drink and give your eyes a 5 minute screen break!
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/993c6226-2897-4bc2-a056-d79572c72f6a)
 
+
+## Deploy Azure Container Registry (ACR)
+
+When the cluster is deployed, we can move on to creating our container registry. As mentioned in the glossary, we can use ACR to securely host our application container images. Copy and paste the belowand give your ACR a unique name **between 5 and 50 characters, letters and numbers only**
+
+``` bash
+	az acr create --resource-group <RG name> --name <ACR instance name> --sku Standard --location <location>
+```
+``` bash
+	az acr create --resource-group DucLe-RG1 --name ducle-acr-instance --sku Standard --location westus
+```
 
 to be continued...
 

@@ -183,3 +183,84 @@ Our repository contains the code for a .NET Core MVC (Model View Controller) web
 **docker-compose.yml** - This file defines the image that will be used and points to the Dockerfile above which we used to build the image for us.
 
 **mhc-aks.yaml** - This is our Kubernetes manifest file.  In here, we define the deployments, services and pods that we need for our application to run.
+
+
+## Build Definition
+
+Now we can edit our build to correctly build our Docker image.  Select our build definition 'MyHealth.AKS.build' and click the edit button.
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/148d95f0-4a92-4359-a47a-dc383beb5cca)
+
+You will see two 'Replace Tokens' tasks and four Docker Compose tasks.  The replace tokens task is a neat little feature that will replace some of the hard coded values in our code sitting in source control.  This is especially valuable when deploying the same code to different environments, which will have different databases, container registries, AKS clusters etc. 
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/1bba7573-71dd-4357-a385-2f3187022807)
+
+1. Select 'Variables' from the bar at the top, and then update each of the variables below to match the values you made a note of earlier:
+
+- ACR Name
+- SQLpassword
+- SQLserver
+- SQLuser
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/4e47677e-c3fe-4117-84bd-5c65dc48bb2f)
+
+You will need to repeat the next step for each Docker build task highlighted below:
+
+
+2. Under 'Azure Subscription' select the your subscription.  The first time you do this, you will need to Authorize the service connection (this step allows you to deploy from Azure DevOps into your Azure subscription).
+
+1. Under Azure Container Registry, select the container registry you created earlier.
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/2c940b51-05c9-4b3c-be9c-b22eb5d8e72c)
+
+Repeat for Build, Push and Lock tasks.  Save the build, but do not queue anything just yet.
+
+
+## Release Definition
+
+Navigate to Releases on the left hand menu, click the ellipsis next to MyHealth.AKS.Release and click 'Edit':
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/4b8722d5-9a5a-400b-98ac-8ef7152040f0)
+
+You will see our release pipeline.  
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/2c486668-f1ae-422d-b1db-69b85f994879)
+
+Once a new build is ready, we have a release ready to deploy automatically.  The first thing we need to do is update some of our variables.  Click 'Variables' just above your pipeline.
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/db46e6d9-cb13-4751-874b-82da688046de)
+
+Update each of the variables below to match the values you made a note of earlier:
+
+- ACR Name
+- SQLserver
+- SQLuser
+
+Now that our variables are referencing our Azure resources, we can edit the Release tasks.  Click the Tasks menu item (it should have a red exclamation mark beside it) and click 'Dev'.
+
+In the 'Execute Azure SQL: DacpacTask', update the Azure Subscription to the one you authorized earlier.
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/f60c946f-a476-4827-8114-bad56d35b86f)
+
+Under the AKS Deployment phase, click the first task **Create Deployments & Services in AKS**. Choose uour subscription, resource group and Kubernetes cluster in the dropdown boxes, then scroll down to 'Secrets'.
+
+ Again, choose your Azure subscription from the drop down box.  Next, choose your Container Registry from the drop down box.  A secret called mysecretkey is created in AKS cluster through Azure DevOps by using a command 'kubectl create secret' in the background (we will use more kubectl later in the lab). This secret will be used for authorization while pulling myhealth.web image from the Azure Container Registry.
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/19defda7-0d76-42e1-8c92-374812a4e254)
+
+We can now move on to the second task in our AKS deployment phase.  Simply repeat the steps above and save your release.
+
+
+## Kick off our build and release pipeline
+
+We are ready to deploy!
+
+Go back to the build definition you edited earlier.  Click 'Queue':
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/371f748f-b4be-4777-b9a8-ab417235828d)
+
+Accept the defaults and run it:
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/d4022cde-ef60-4f59-bfdd-9887c5f22ca8)
+
+You can view progress by clicking on it:
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/f226c2e0-6120-4242-8a58-2a9233a3fc86)
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/83633a23-52cc-40b1-934f-eaa892476fdf)
+
+You can view detailed logs by clicking on any of the steps in the process.  The build should succeed - if so, a release will automatically be kicked off as we have enabled continuous delivery.  Let's check it out.
+
+Navigate to Release and select the new release. 
+
+
+
+
+to be continued...

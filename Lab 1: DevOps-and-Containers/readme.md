@@ -239,6 +239,11 @@ Under the AKS Deployment phase, click the first task **Create Deployments & Serv
  Again, choose your Azure subscription from the drop down box.  Next, choose your Container Registry from the drop down box.  A secret called mysecretkey is created in AKS cluster through Azure DevOps by using a command 'kubectl create secret' in the background (we will use more kubectl later in the lab). This secret will be used for authorization while pulling myhealth.web image from the Azure Container Registry.
 ![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/19defda7-0d76-42e1-8c92-374812a4e254)
 
+Update the Azure Subscription, Resource Group and Kubernetes cluster from the dropdown. Expand the Secrets section and update the parameters for Azure subscription and Azure container registry from the dropdown.
+Repeat similar steps for Update image in AKS task.
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/fa14be20-205d-431c-b4ec-9e938b7d5cdb)
+
+
 We can now move on to the second task in our AKS deployment phase.  Simply repeat the steps above and save your release.
 
 
@@ -250,16 +255,23 @@ Go back to the build definition you edited earlier.  Click 'Queue':
 ![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/371f748f-b4be-4777-b9a8-ab417235828d)
 
 Accept the defaults and run it:
+
 ![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/d4022cde-ef60-4f59-bfdd-9887c5f22ca8)
 
 You can view progress by clicking on it:
 ![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/f226c2e0-6120-4242-8a58-2a9233a3fc86)
-![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/83633a23-52cc-40b1-934f-eaa892476fdf)
 
 You can view detailed logs by clicking on any of the steps in the process.  The build should succeed - if so, a release will automatically be kicked off as we have enabled continuous delivery.  Let's check it out.
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/83633a23-52cc-40b1-934f-eaa892476fdf)
 
-Navigate to Release and select the new release. 
 
+Navigate to Release and select the new release. You may have to wait for a minute or so before it appears. You'll see something like the below when you click on it.
+
+
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/abf8c25a-8152-4104-bd4b-7dccedc7e038)
+Here we can see that the our successful build has triggered a new release into our Dev environment. Under the Dev environment, click 'In progress' to see detailed logs of what's happening.
+
+After a few minutes, the release should be successful. If you get any errors regarding your container registry in the AKS deployment phase, go back to your release definition and confirm that your Azure subscription and container registry are selected - then save the definition and repeat the steps above.
 
 
 

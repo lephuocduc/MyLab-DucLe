@@ -165,9 +165,21 @@ Install the extension on your Azure DevOps account.  Once installed, return to t
 ![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/789d8ea7-4c28-40e5-8b77-5aae7f41b55e)
 
 After a minute or two, your project will be successfully created. Navigate to your project - it's time to start building our build and release pipeline!
+
 ![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/75eb70dd-936f-4ee3-b5a0-3aed072791a2)
 
 
 ##  Explore repository
 
 Now, we will explore our project code.  Select Repos and then Files on the left hand side menu:
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/d2b5ca71-5d13-4d06-942e-08cd77584844)
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/ebd2fed9-cde0-4966-bd97-3d29a0f9c482)
+
+Our repository contains the code for a .NET Core MVC (Model View Controller) website (in folder 'src').  We have some other files in this, and in the root of our project, that enable us to deploy the website to containers:
+
+
+**dockerfile** - This file enables Docker to build an image automatically by reading the instructions contained within.  In this case we will be pulling the aspnetcore:1.0 image from the Microsoft Docker hub.
+
+**docker-compose.yml** - This file defines the image that will be used and points to the Dockerfile above which we used to build the image for us.
+
+**mhc-aks.yaml** - This is our Kubernetes manifest file.  In here, we define the deployments, services and pods that we need for our application to run.

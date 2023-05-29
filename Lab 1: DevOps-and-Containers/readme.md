@@ -332,6 +332,151 @@ kubectl get service mhc-front
 
 Copy and paste the external IP into a browser window.  You should see your newly deployed Health Clinic application.
 
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/ca7f24fd-dc17-4e98-aa6b-ca911c462564)
 
+## Set up Continuous Integration
 
-to be continued...
+Now for our final step, we want to complete the DevOps pipeline that we've set up. Right now, we have successfully set up 'Continuous Deployment', which essentially means when we trigger a Build, like we did in a previous step, the application's code is bundled up, then sent over to the Azure Kubernetes Service, and deployed into the wild, all without us having to perform any steps manually.
+
+But what if we want all of this to happen as soon as we make a change to the application's code? Well, this is what we call Continuous Integration. This is what enables developers to publish changes to application code much more quickly, and respond to their user's needs in a much more agile way.
+
+Let's set this up. Firstly, go back to Azure DevOps and open up the **Build and Release** page, then click your build and navigate to the **Triggers** tab. We want to check the box that says Enable continuous integration. Then click 'Save'.
+
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/a31c77ee-0427-4028-9b56-1b1b3c842f11)
+
+This will now trigger our Build automatically when a change has been made to the application's code on the *master* branch.
+
+> Branches allow developers to work on a new feature in a separate branch from the main code, then re-introduce their code when it's ready, by performing something called a *merge*. We'll just be using the master branch in this lab for simplicity.
+
+Let's test if this works. Head over to the Code page which should open your code files. On the top right, you'll see an option called 'Clone' - give it a click and copy the Clone URL to your clipboard.
+
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/285b1c58-b200-4ee7-b45a-80f1047c2ad3)
+
+Think of this as a direct link to your code, which we'll use to download it to your machine. We could make quick changes to the code in Azure DevOps itself like we did before; however to simulate how developer's typically work with code locally then push up to a remote master, we'll download it to our machine to work on it. Copying code in this way is called a `Git Clone` operation.
+
+## Updating the Code
+
+One really cool feature of Cloud Shell, is that it comes with Git tools installed! If you already use a code editor, like Visual Studio Code, feel free to use that in the following steps. You also need to make sure you have Git installed on your local machine.
+
+> Git is a framework that is widely used by developers to track code changes and collaborate across various people and teams on a single source code. Imagine the complexity of working on 20 Word documents seperately and then trying to merge them together - this is what Git helps us with in the code world!
+
+First, we need to tell Git who we are so that it can track our changes. Open a Cloud Shell session and enter the following, replacing NAME and EMAIL with a nickname and the email you used when creating your Azure DevOps account:
+
+```
+git config --global user.name "NAME"
+git config --global user.email "EMAIL"
+```
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/7633c619-7b85-4e7a-9dfa-c41a3600ecc0)
+
+In order to get the code from our repo, we will need to authenticate. There are a few ways we can do this, and Personal Access Tokens are preferred and the most secure method. You can read about them [here.](https://docs.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops)
+
+In Azure DevOps, click on your profile icon (top right) and then select Personal Access Tokens.
+
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/eb0b12c1-8933-48ef-9a6e-0ea2af8510e5)
+
+Click on '+ New Token' and fill in the details. Ensure you give your PAT a name, and follow the below checklist before hitting Create.
+
+- a descriptive name
+- select 'custom defined'
+- assign it 'read and write' permissions under Code
+
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/b54a903d-9e2f-4cd0-ad33-93dcfd491a6d)
+
+After creation, you will see the message below - make sure you copy your PAT and paste it into your notepad - you won't be able to retrieve it. 
+
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/ca2096e7-2495-4088-80b3-f6bf84118395)
+
+We have just created an access token that can be used to perform Code operations in our Azure DevOps organisation. 
+
+Now we'll use Git to grab the code from our remote repository in Azure DevOps. Type the following, replacing LINK with the Clone link you copied from Azure DevOps.
+
+```
+git clone LINK
+```
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/3ad5a23b-4911-46eb-894e-7f0a197dde1e)
+
+You will be prompted for a password. Copy the PAT you just created, paste it into Cloud Shell, and hit enter. You should see something like the below:
+
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/b8158979-a864-4bc0-9aaf-534ff2f6f44f)
+
+Great, now type:
+
+```
+ls
+```
+
+You should see a folder called 'AKS'. This contains all of the websites code and is identical to the code in our Azure DevOps repo. Now let's edit it. Change directory by typing:
+
+```
+cd AKS
+```
+
+Click on the curly braces (they look like this: { } ) in the Cloud Shell to open the built in code editor. 
+
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/433f7f92-b0b5-47de-83df-d68a4f48938f)
+
+Once it has launched, you can resize the window to make it easier to work with. 
+
+Now, in the Explorer pane on the left, navigate into the folder containing our website's Home page by following this path: `src > MyHealth.Web > Views > Home` then opening `Index.cshtml`.
+
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/893ea330-c005-4f15-9106-fc02ee624ed8)
+
+This is a C# HTML page and essentially renders the structure and content of our medical website's homepage. Let's make a little change to the page just so we can see our changes automatically being pulled through to our live website running on Azure Kubernetes. Change any of the page text (careful not to change anything inside a html tag - < > ), for example I've modified 'Connect with your health' to 'I've just changed this page'. Then hit 'Save' (or `Ctrl + S`).
+
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/ee9ab075-58ec-469d-abcb-54c95fcb4872)
+
+Now that we've modified the code, we need to tell Git that we'd like to commit the change and then send it up to the remote Azure DevOps repository to be merged into the master branch.
+
+We can do this directly in Cloud Shell. First, let's check if Git has picked up our change.
+
+```
+git status
+```
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/bd337f0d-0ef6-4b7a-a4a0-0e42b30b3f0a)
+
+Git identified the modified file. Now let's commit the change.
+
+```
+git commit -a -m "changed Index.cshtml"
+```
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/7edc086b-42a7-4b30-85d8-a2eeb436d28f)
+
+This has now updated our **local** master branch with the changes we made, but we haven't yet told Azure DevOps about this. Git keeps a local record of all your code changes / commits, and another on the server (Azure DevOps), so we need to now synchronise the two. Type the following git command:
+
+```
+git push
+```
+You may be prompted for a password; enter the same PAT you used earlier.
+
+Now Git will first pull down any changes that have been made remotely since we copied it to our machine, it will check if there are any conflicts, and if not (and there shouldn't be since no-one else is using our repo!) it will then merge and push the code back up to Azure DevOps.
+
+Let's double check that this has happened. Go back to Azure DevOps in your web browser and refresh the Code page. You should see your commit message has appeared next to the 'src' folder (since this contains the homepage code you changed).
+
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/956e126e-61b7-4a59-b13c-67c25d2f09b9)
+
+That's not all. Because we set up the Continuous Integration trigger, we should now no longer have to manually click 'Queue new Build' to push code to our live website. Let's confirm this by heading to the 'Build and Release' page.
+
+You should see that a new Build is already in progress, along with the latest commit message we pushed.
+
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/a59c22eb-8d22-4e64-8205-57473141e5c3)
+
+If all goes well, the build should then initiate a Release like before, thanks to our Continuous Deployment pipeline, which will make its way to your Azure Kubernetes Service and out on the wild web. Nice one!
+
+## So what have I just achieved?
+
+Congratulations on completing the lab, we hope you found it useful and engaging. To summarise, you have:
+
+1. Created a Kubernetes cluster in Azure and a project in Azure DevOps to host and run your code
+2. Set up a Continuous Delivery pipeline in Azre DevOps & linked to your Azure environment (no small feat!)
+3. Tested the pipeline and monitored your application running in the Kubernetes service
+4. Set up a Continuous Integration pipeline to feed new code changes straight through to the CD pipeline
+5. Used Git and VS Code to Clone the code repository to your machine, then edited the code and pushed it back to Azure DevOps
+6. Automatically triggered a new build through CI which has pushed your changes straight to your live website
+
+DevOps is by no means simple, but you've covered a lot of ground and tackled the core principals of CI, CD and working with code. Well done.
+
+## Where do I go from here?
+
+Now that you've completed the lab, we hope you'll want to take what you've done and continue to learn and develop in Azure. You can get a free Azure subscription as a sandbox environment to play around with for your personal use, which you can get from [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
+
+Happy coding!

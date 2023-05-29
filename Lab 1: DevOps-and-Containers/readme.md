@@ -152,3 +152,22 @@ We need to make a note of some of the resource names.  We will use these when cr
 * Your SQL Server name
 ![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/a4f7dac1-c7a8-4e58-8374-3fcffcf10b3e)
 
+
+## Create an Azure DevOps account and generate a demo project
+
+Now we will generate our demo project, using Azure DevOps Generator!
+
+Go to [Azure DevOps Generator!](https://azuredevopsdemogenerator.azurewebsites.net) (right-click and open in a new tab) and sign in with your Azure DevOps account.  If you don't have one, click 'Get started for free' and follow the instructions.
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/1e5f368f-80a4-4b30-b0b4-845bc8781a51)
+
+You're all setup with an Azure DevOps account now! Go back to the demo generator and sign in. Accept the terms and conditions and proceed to choosing a project. Select your account name, and choose the project specified in the image below (click the DevOps Labs and then the AKS project) Call it Lab1.
+Install the extension on your Azure DevOps account.  Once installed, return to the demo generator and create your project.  To know more about [how to install free extensions for Azure DevOps!] here(https://docs.microsoft.com/en-us/azure/devops/marketplace/install-vsts-extension?view=vsts)
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/789d8ea7-4c28-40e5-8b77-5aae7f41b55e)
+
+After a minute or two, your project will be successfully created. Navigate to your project - it's time to start building our build and release pipeline!
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/75eb70dd-936f-4ee3-b5a0-3aed072791a2)
+
+
+##  Explore repository
+
+Now, we will explore our project code.  Select Repos and then Files on the left hand side menu:

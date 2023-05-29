@@ -94,10 +94,10 @@ The AKS cluster will take a little while to deploy.  Now is the ideal time to ge
 When the cluster is deployed, we can move on to creating our container registry. As mentioned in the glossary, we can use ACR to securely host our application container images. Copy and paste the belowand give your ACR a unique name **between 5 and 50 characters, letters and numbers only**
 
 ``` bash
-	az acr create --resource-group <RG name> --name <ACR instance name> --sku Standard --location <location>
+az acr create --resource-group <RG name> --name <ACR instance name> --sku Standard --location <location>
 ```
 ``` bash
-	az acr create --resource-group DucLe-RG1 --name ducle-acr-instance --sku Standard --location westus
+az acr create --resource-group DucLe-RG1 --name ducle-acr-instance --sku Standard --location westus
 ```
 
 to be continued...

@@ -314,6 +314,24 @@ az aks get-credentials -g DucLe-RG1 -n ducle-aks
 ```
 
 kubectl is a command line tool for working with our Kubernetes service.  Now, let's check if our Pods are up and running.  If so, we should see both the front and back end Pods up and running:
+``` bash
+kubectl get pods
+```
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/852d5d4c-20ae-4bb5-9eef-1ad717debaa7)
+
+Now we need to find out the public IP that the website is deployed to.  Kubernetes supports exposing our application via two methods: Load Balancer and NodePorts.  In this exercise, we can look at our mhc-aks.yaml file to confirm that we are using the Load Balancer service in Kubernetes to expose our application front end to a public IP:
+
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/2dc3b30a-a8ad-4eaf-9700-4a2644b23d1b)
+
+To find out what public IP address has been assigned, we can type the following into our command prompt window:
+
+``` bash
+kubectl get service mhc-front
+```
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/090cf207-f5cf-4d3a-80ae-2a6dafb16b2c)
+
+Copy and paste the external IP into a browser window.  You should see your newly deployed Health Clinic application.
+
 
 
 to be continued...

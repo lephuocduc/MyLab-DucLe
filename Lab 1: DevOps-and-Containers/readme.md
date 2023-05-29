@@ -88,6 +88,12 @@ az aks create --resource-group DucLe-RG1 --name ducle-aks --enable-addons monito
 The AKS cluster will take a little while to deploy.  Now is the ideal time to get yourself a drink and give your eyes a 5 minute screen break!
 ![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/993c6226-2897-4bc2-a056-d79572c72f6a)
 
+Get credentials to access the cluster using the az aks get-credentials command.
+``` bash
+az aks get-credentials --resource-group DucLe-RG1 --name ducle-aks
+```
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/57cc8826-e738-4a35-ad2b-673c1e3a0da6)
+
 
 ## Deploy Azure Container Registry (ACR)
 
@@ -97,10 +103,17 @@ When the cluster is deployed, we can move on to creating our container registry.
 az acr create --resource-group <RG name> --name <ACR instance name> --sku Standard --location <location>
 ```
 ``` bash
-az acr create --resource-group DucLe-RG1 --name ducle-acr-instance --sku Standard --location westus
+az acr create --resource-group DucLe-RG1 --name ducleacrinstance --sku Standard --location westus
 ```
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/4e81303b-7b10-4f13-9a35-887c4ebb9e26)
 
-to be continued...
+To access other Azure Active Directory (Azure AD) resources, an AKS cluster requires either an Azure Active Directory (AD) service principal or a managed identity.
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/f42616c4-5e2e-4b89-8415-12a1ed6bcaf3)
+
+This identity can be used to authenticate and authorize the resource to access other Azure resources, such as Azure Key Vault, Azure Storage, Azure SQL Database, or Azure Container Registry. In our scenario, we will need to access a container registry - both to push and pull images to get our website running on a Kubernetes cluster.
+
+To get the role assignments of a managed identity in Azure, you can use the Azure CLI or Azure PowerShell. Here are the steps to retrieve the role assignments for a managed identity:
+
 
 
 

@@ -110,9 +110,19 @@ az acr create --resource-group DucLe-RG1 --name ducleacrinstance --sku Standard 
 To access other Azure Active Directory (Azure AD) resources, an AKS cluster requires either an Azure Active Directory (AD) service principal or a managed identity.
 ![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/f42616c4-5e2e-4b89-8415-12a1ed6bcaf3)
 
-This identity can be used to authenticate and authorize the resource to access other Azure resources, such as Azure Key Vault, Azure Storage, Azure SQL Database, or Azure Container Registry. In our scenario, we will need to access a container registry - both to push and pull images to get our website running on a Kubernetes cluster.
+This identity can be used to authenticate and authorize the resource to access other Azure resources, such as Azure Key Vault, Azure Storage, Azure SQL Database, or Azure Container Registry. In our scenario, we will need to access a container registry - both to push and pull images to get our website running on a Kubernetes cluster. 
 
-To get the role assignments of a managed identity in Azure, you can use the Azure CLI or Azure PowerShell. Here are the steps to retrieve the role assignments for a managed identity:
+``` bash
+# Get the id of the managed identity configured for AKS
+CLIENT_ID=$(az aks show --resource-group DucLe-RG1 --name ducle-aks --query "identityProfile.kubeletidentity.objectId" --output tsv)
+
+# Get the ACR registry resource id
+ACR_ID=$(az acr show --name ducleacrinstance --resource-group DucLe-RG1 --query "id" --output tsv)
+
+# Create role assignment
+az role assignment create --assignee $CLIENT_ID --role acrpull --scope $ACR_ID
+```
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/f90af84a-ded6-46ae-9d73-20ed1aad457e)
 
 
 

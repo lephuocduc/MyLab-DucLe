@@ -107,10 +107,12 @@ az acr create --resource-group DucLe-RG1 --name ducleacrinstance --sku Standard 
 ```
 ![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/4e81303b-7b10-4f13-9a35-887c4ebb9e26)
 
-To access other Azure Active Directory (Azure AD) resources, an AKS cluster requires either an Azure Active Directory (AD) service principal or a managed identity.
-![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/f42616c4-5e2e-4b89-8415-12a1ed6bcaf3)
+To access other Azure Active Directory (Azure AD) resources, an AKS cluster requires either an Azure Active Directory (AD) service principal or a managed identity. When you created the AKS cluster, a Managed Identity was automatically generated.  We need this to authorize the AKS cluster to connect to our Container Registry and pull down container images.
 
-This identity can be used to authenticate and authorize the resource to access other Azure resources, such as Azure Key Vault, Azure Storage, Azure SQL Database, or Azure Container Registry. In our scenario, we will need to access a container registry - both to push and pull images to get our website running on a Kubernetes cluster. 
+This identity can be used to authenticate and authorize the resource to access other Azure resources, such as Azure Key Vault, Azure Storage, Azure SQL Database, or Azure Container Registry. In our scenario, we will need to access a container registry - both to push and pull images to get our website running on a Kubernetes cluster. The steps below show you how to get the ID of the Managed Identity for AKS and the resource id of our container registry.  With these, we can create a role assignment for the Managed Identity, **acrpull**, which allows for pulling of images by the Managed Identity. 
+
+Pop the below into a text editor and then make sure you replace **aks_cluster_name** with whatever your named your AKS cluster, and replace **acr_name** with whatever you named your ACR. Then go ahead and paste it into the terminal.
+
 
 ``` bash
 # Get the id of the managed identity configured for AKS

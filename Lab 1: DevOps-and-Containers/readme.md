@@ -462,6 +462,9 @@ You should see that a new Build is already in progress, along with the latest co
 
 If all goes well, the build should then initiate a Release like before, thanks to our Continuous Deployment pipeline, which will make its way to your Azure Kubernetes Service and out on the wild web. Nice one!
 
+Back to the website, we can see the title has changed successfully!
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/09e3dd28-9cc2-4d39-bb02-a4709be7a759)
+
 ## So what have I just achieved?
 
 Congratulations on completing the lab, we hope you found it useful and engaging. To summarise, you have:

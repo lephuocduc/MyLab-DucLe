@@ -80,7 +80,10 @@ To create your cluster, copy and paste the below into your cloud shell.  Choose 
 > NOTE: AKS cluster names must contain only letters, numbers and hyphens, and be between 3 and 31 characters long.
 
 ``` bash
-az group create --name DucLe-RG1 --location westus
+az aks create --resource-group <RG name> --name <cluster name> --enable-addons monitoring --kubernetes-version <version number> --generate-ssh-keys --location <location>
+```
+``` bash
+az aks create --resource-group DucLe-RG1 --name ducle-aks --enable-addons monitoring --kubernetes-version 1.12.8 --generate-ssh-keys --location westus
 ```
 
 

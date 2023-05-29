@@ -113,8 +113,6 @@ To access other Azure Active Directory (Azure AD) resources, an AKS cluster requ
 This identity can be used to authenticate and authorize the resource to access other Azure resources, such as Azure Key Vault, Azure Storage, Azure SQL Database, or Azure Container Registry. In our scenario, we will need to access a container registry - both to push and pull images to get our website running on a Kubernetes cluster. The steps below show you how to get the ID of the Managed Identity for AKS and the resource id of our container registry.  With these, we can create a role assignment for the Managed Identity, **acrpull**, which allows for pulling of images by the Managed Identity. 
 
 Pop the below into a text editor and then make sure you replace **aks_cluster_name** with whatever your named your AKS cluster, and replace **acr_name** with whatever you named your ACR. Then go ahead and paste it into the terminal.
-
-
 ``` bash
 # Get the id of the managed identity configured for AKS
 CLIENT_ID=$(az aks show --resource-group DucLe-RG1 --name ducle-aks --query "identityProfile.kubeletidentity.objectId" --output tsv)
@@ -127,6 +125,30 @@ az role assignment create --assignee $CLIENT_ID --role acrpull --scope $ACR_ID
 ```
 ![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/f90af84a-ded6-46ae-9d73-20ed1aad457e)
 
+## Deploy an Azure SQL Database
 
+We need to deploy a database for the back end of our application. Azure SQL Database is a general purpose relational database managed service. There are a number of deployment options, and for this lab, we will deploy a single database managed via a SQL DB Server. Give your SQL Server a unique name (**unique-sqlserver-name** below)
 
+> NOTE: SQL Server names must be **lowercase** and unique. This is very important - otherwise your lab won't work.
+``` bash
+az sql server create -l westus -g DucLe-RG1 -n ducle-sqlserver -u adminuser111 -p Adminuser123$
+```
+
+Once that is successful (it may take a few minutes), create the database, making sure to use the server name you chose above, and keep the database name **mhcdb**. 
+``` bash
+az sql db create -g DucLe-RG1 -s ducle-sqlserver -n ducle-sqldb --service-objective S0
+```
+
+Go the resource group 'DucLe-RG1'. Verify that you see the resources below (with whatever you named them). 
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/69c725d7-6698-402c-bdda-e8eb54ca3651)
+
+We need to make a note of some of the resource names.  We will use these when creating our CI/CD pipeline in Azure DevOps.  Make sure you note down:
+
+* Your AKS cluster name
+
+* Your Container registry Login server name
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/02c497b7-4e1b-49b8-b4c7-9227993fed36)
+
+* Your SQL Server name
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/a4f7dac1-c7a8-4e58-8374-3fcffcf10b3e)
 

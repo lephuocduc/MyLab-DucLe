@@ -269,10 +269,25 @@ Navigate to Release and select the new release. You may have to wait for a minut
 
 
 ![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/abf8c25a-8152-4104-bd4b-7dccedc7e038)
+
 Here we can see that the our successful build has triggered a new release into our Dev environment. Under the Dev environment, click 'In progress' to see detailed logs of what's happening.
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/70b6f52f-0055-4f74-95d2-113a9df96201)
+
 
 After a few minutes, the release should be successful. If you get any errors regarding your container registry in the AKS deployment phase, go back to your release definition and confirm that your Azure subscription and container registry are selected - then save the definition and repeat the steps above.
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/757ec605-7b4d-4cad-a524-cfedc1edc4ac)
 
+
+## View your newly deployed website
+
+Now - Azure DevOps has deployed the website to a Kubernetes cluster - but how can we see it?
+
+1. Go back to the Azure Portal and open Cloud Shell once again. We need to tell the Shell which Kubernetes cluster we want to work with, and we do this by getting the context:
+``` bash
+az aks get-credentials -g DucLe-RG1 -n ducle-aks
+```
+
+kubectl is a command line tool for working with our Kubernetes service.  Now, let's check if our Pods are up and running.  If so, we should see both the front and back end Pods up and running:
 
 
 to be continued...

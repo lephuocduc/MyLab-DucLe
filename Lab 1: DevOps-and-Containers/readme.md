@@ -68,13 +68,21 @@ Resource groups in Azure can be likened to logical buckets where you can organiz
 2. Create a resource group and specify your preferred **region**.  Some examples are eastus, westeurope, westus.  Whichever you pick, please use that region for the rest of the lab when asked to create a new resource.
 
 ``` bash
-	az group create --name DucLe-RG1 --location westus
+az group create --name <RG name> --location <location>
+```
+``` bash
+az group create --name DucLe-RG1 --location westus
 ```
 ![image](https://github.com/lephuocduc/TheLabGuide/assets/37317309/5bb160e2-7d1c-45de-8c9e-46dbf1f2fda6)
 
 ## Deploy Azure Kubernetes Service (AKS)
 To create your cluster, copy and paste the below into your cloud shell.  Choose a unique name for your AKS cluster.
 > NOTE: AKS cluster names must contain only letters, numbers and hyphens, and be between 3 and 31 characters long.
+
+``` bash
+az group create --name DucLe-RG1 --location westus
+```
+
 
 to be continued...
 

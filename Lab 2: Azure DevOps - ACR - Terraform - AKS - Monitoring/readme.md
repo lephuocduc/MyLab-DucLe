@@ -1,3 +1,15 @@
+# What you will learn
+
+In this tutorial/lab, you will learn:
+- Initial setup of Azure DevOps to begin deploying to Azure using Pipelines as code
+- Deploy Azure resources using Terraform modules
+- Deploy a test application to Azure Kubernetes Service 
+- An understanding of CI/CD with automated application deployments
+- Test your deployed Azure resources using automated testing
+- Reviewing monitoring and alerting using Application & Container Insights
+
+This setup is based on a somewhat "real-life" scenario and setup mirrors an example of a real-world setup!
+
 # Tutorial/labs format
 
 

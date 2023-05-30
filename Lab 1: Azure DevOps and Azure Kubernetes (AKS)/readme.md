@@ -465,7 +465,7 @@ If all goes well, the build should then initiate a Release like before, thanks t
 Back to the website, we can see the title has changed successfully!
 ![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/09e3dd28-9cc2-4d39-bb02-a4709be7a759)
 
-## So what have I just achieved?
+# So what have I just achieved?
 
 Congratulations on completing the lab, we hope you found it useful and engaging. To summarise, you have:
 
@@ -477,9 +477,3 @@ Congratulations on completing the lab, we hope you found it useful and engaging.
 6. Automatically triggered a new build through CI which has pushed your changes straight to your live website
 
 DevOps is by no means simple, but you've covered a lot of ground and tackled the core principals of CI, CD and working with code. Well done.
-
-## Where do I go from here?
-
-Now that you've completed the lab, we hope you'll want to take what you've done and continue to learn and develop in Azure. You can get a free Azure subscription as a sandbox environment to play around with for your personal use, which you can get from [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
-
-Happy coding!

@@ -11,49 +11,48 @@
 5. **Minimum password age** is set to **0** day in GPO
 </aside>
 
-
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/c3ec4baa-70b9-4e4a-86d1-1ecf2d78dde5)
 
 For later tutorials in this series, you'll need an Azure AD Premium P1 or trial license for on-premises password writeback.
-
-
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/2c6e5093-a2d8-495f-9c65-9fabb5639ff2)
 
 1. **Enable SSRP for all users or for specific groups**
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/58922466-0068-4f7b-94ae-f6575f0be9c6/Untitled.png)
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/761fecca-5fd7-49e5-bb56-21b4f5acf8df)
 
-1. **Select authentication methods and registration options*:*** When users need to unlock their account or reset their password, they're prompted for another confirmation method. This extra authentication factor makes sure that Azure AD finished only approved SSPR events
+2. **Select authentication methods and registration options*:*** When users need to unlock their account or reset their password, they're prompted for another confirmation method. This extra authentication factor makes sure that Azure AD finished only approved SSPR events
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1b8c99ec-f925-4576-816a-43bf2a298c03/Untitled.png)
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/7f09383b-25f5-4956-875f-f9d1c31d4ae6)
 
 Before users can unlock their account or reset a password, they must register their contact information. Azure AD uses this contact information for the different authentication methods set up in the previous steps
 
-1. Make sure you enabled **password writeback** in Azure AD Connect
+3. Make sure you enabled **password writeback** in Azure AD Connect
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/04bb06a1-6e97-414b-b166-ffc36c1c4dfc/Untitled.png)
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/a146c71c-6732-4506-9ffa-7ba6699aea12)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5c2bcf8c-9e14-427c-969f-2b0d3eb57911/Untitled.png)
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/642a1b4a-89fb-495b-9c06-70f8b0257354)
 
-1. Set **Minimum password age** to **0** day
+4. Set **Minimum password age** to **0** day
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bc4ab88a-549b-46aa-bb35-d4867205e927/Untitled.png)
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/4b6d0e0b-1d60-4096-af55-a5629c586548)
 
 **TESTING SSRP**
 
 1. Sign in a test user to implement SSRP or access *https://aka.ms/ssprsetup* to ***s*etup some information for the MFA**
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ef25fcfc-c49f-49c2-9eba-c522a57cbd3a/Untitled.png)
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/2de5ff58-83a3-4bd3-8d50-536d61ebd7de)
 
-1. Access to *https://aka.ms/sspr* to self reset password. Enter your non-administrator test users' account information, like *testuser*, the characters from the CAPTCHA, and then select **Next**.
+2. Access to *https://aka.ms/sspr* to self reset password. Enter your non-administrator test users' account information, like *testuser*, the characters from the CAPTCHA, and then select **Next**.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/099a9367-89bd-4f7a-b901-751f246b3887/Untitled.png)
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/f3ce85b8-6ab5-4eb3-a499-6e46265392ad)
 
-1. **Follow the verification steps to reset your password**. When finished, you'll receive an email notification that your password was reset.
+3. **Follow the verification steps to reset your password**. When finished, you'll receive an email notification that your password was reset.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3edab29f-4a91-456b-92b9-cd490d1cbbc7/Untitled.png)
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/15b2f6cd-ba4e-4480-9721-be1726c98de7)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c07ac4b3-9224-4dc2-a12f-17ed2c9ce0a7/Untitled.png)
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/32a99e1d-221e-485b-9fe8-65ed51ee74b1)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/262efe25-7a32-4e84-81ce-2a5dd80b0b2a/Untitled.png)
+![Uploading image.png…]()
 
 ***Reference link:***
 

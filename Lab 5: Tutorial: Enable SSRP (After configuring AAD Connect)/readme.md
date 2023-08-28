@@ -52,7 +52,8 @@ Before users can unlock their account or reset a password, they must register th
 
 ![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/32a99e1d-221e-485b-9fe8-65ed51ee74b1)
 
-![Uploading image.png…]()
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/21a91746-32be-4479-bda0-0b75c49435a9)
+
 
 ***Reference link:***
 

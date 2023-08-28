@@ -17,33 +17,33 @@
 
 4. Connect to Azure AD using **Azure AD Global Administrator** account or **Hybrid Identity Administrator** account for the Azure AD tenant you want to integrate with.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/fd29bacf-864a-499d-8bd6-054a065ce4b7/Untitled.png)
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/770c9aa6-7f9f-4f42-bed4-e9aeb41fcfa8)
 
-1. Add Alternative UPN suffixes leduc.name.vn
+5. Add Alternative UPN suffixes leduc.name.vn
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6c086952-8d64-481e-a386-465951076816/Untitled.png)
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/66d3bef8-c8f6-4edc-87e3-ba781a76db02)
 
-1. Connect to AD DS using ***Enterprise Administrator** account for your on-premises Active Directory*
+6. Connect to AD DS using ***Enterprise Administrator** account for your on-premises Active Directory*
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b0dc54c7-8a69-4146-8182-06b3156bfbf3/Untitled.png)
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/704b0f97-fa8f-4712-ba01-80b2f94a3746)
 
-1. If you see this page, review each domain that's marked **Not Added** or **Not Verified**. Make sure that those domains have been verified in Azure AD. When you've verified your domains, select the **Refresh** icon.
+7. If you see this page, review each domain that's marked **Not Added** or **Not Verified**. Make sure that those domains have been verified in Azure AD. When you've verified your domains, select the **Refresh** icon.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e1251de2-bd57-4223-8863-5aec0d54be6c/Untitled.png)
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/3bde7aec-39b6-4396-ba33-184de15b9992)
 
-1. In **Ready to configure**, select **Install**.
+8. In **Ready to configure**, select **Install**.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ad90c7f9-09ea-4282-bb1d-31461191fdf9/Untitled.png)
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/28f2c836-ea6f-4587-a4af-aa30647022c1)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c04cfad1-34fc-4f23-a9f9-5f660d7dac33/Untitled.png)
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/0c11909f-cf32-466a-b28d-c3ddea6463ab)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/555bfc79-a940-457d-80f9-fa6e9f63dc8c/Untitled.png)
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/3d88dfb1-7af3-43ad-af6e-8f57e296aa17)
 
 Finish the configuration
 
 1. Check the status on AAD Connect
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0621af63-da84-46d0-8f93-042e66c71bae/Untitled.png)
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/95320d7f-5a2e-4998-bf3d-54e388cfa0ce)
 
 ***Reference link:***
 

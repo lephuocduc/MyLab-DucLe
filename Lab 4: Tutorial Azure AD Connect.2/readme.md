@@ -45,5 +45,6 @@ Finish the configuration
 
 ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0621af63-da84-46d0-8f93-042e66c71bae/Untitled.png)
 
-Reference link:
-https://learn.microsoft.com/en-us/azure/active-directory/hybrid/connect/how-to-connect-install-express
+***Reference link:***
+
+[Azure AD Connect: Get started by using express settings - Microsoft Entra](https://learn.microsoft.com/en-us/azure/active-directory/hybrid/connect/how-to-connect-install-express)

@@ -13,7 +13,7 @@
 2. Go to *AzureADConnect.msi* and double-click to open the installation file.
 3. In **Connect to Azure AD**, enter the username and password of the Hybrid Identity Administrator account, and then select **Next**.
 
-[![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/92c437dc-675d-4e55-b50d-7a838cc6fa41/Untitled.png)](https://www.notion.so/ducle97/Tutorial-Azure-AD-Connect-2dd6b7f36aad4c4d88866201a65e9487?pvs=4#bfbc621b285e468a83cbdb1e071a1365)
+![image](https://github.com/lephuocduc/MyLab-DucLe/assets/37317309/cf161476-7e62-4e67-9abb-c6882b9c6b7d)
 
 4. Connect to Azure AD using **Azure AD Global Administrator** account or **Hybrid Identity Administrator** account for the Azure AD tenant you want to integrate with.
 
